@@ -1,10 +1,23 @@
-AWSTemplateFormatVersion: "2010-09-09" # (1)
-Transform: AWS::Serverless-2016-10-31 # (1)
-Resources: # (2)
-  DynamoBooksTable: # (3)
-    Type: AWS::Serverless::SimpleTable # (4)
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+Resources:
+  DynamoBooksTable:
+    Type: AWS::Serverless::SimpleTable
     Properties:
-      TableName: books # (5)
+      TableName: booklist
       PrimaryKey:
-        Name: id # (6)
+        Name: id
         Type: String
+  CreateBookFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: src/
+      Handler: create-book.handler
+      Policies: AmazonDynamoDBFullAccess
+      Runtime: nodejs12.x
+      Events:
+        CreateBook:
+          Type: Api
+          Properties:
+            Path: /books
+            Method: post
