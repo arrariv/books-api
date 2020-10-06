@@ -25,7 +25,7 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       CodeUri: src/
-      Handler: read-books-handler
+      Handler: read-books.handler
       Policies: AmazonDynamoDBFullAccess
       Runtime: nodejs12.x
       Events:
