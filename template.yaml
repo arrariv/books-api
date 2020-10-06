@@ -21,3 +21,16 @@ Resources:
           Properties:
             Path: /books
             Method: post
+  ReadBooksFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: src/
+      Handler: read-books-handler
+      Policies: AmazonDynamoDBFullAccess
+      Runtime: nodejs12.x
+      Events:
+        ReadBooks:
+        Type: Api
+        Properties:
+          Path: /books
+          Method: get

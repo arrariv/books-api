@@ -1,3 +1,4 @@
+// Import libraries
 const AWS = require("aws-sdk");
 const crypto = require("crypto");
 
