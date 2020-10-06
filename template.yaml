@@ -30,7 +30,7 @@ Resources:
       Runtime: nodejs12.x
       Events:
         ReadBooks:
-        Type: Api
-        Properties:
-          Path: /books
-          Method: get
+          Type: Api
+          Properties:
+            Path: /books
+            Method: get
